@@ -1,6 +1,4 @@
 /*
- * Copyright 2016 Yan Zhenjie
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,15 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cc.sachsen.fingertest.swipe;
+package com.zy.widget.swiperecyclerview;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.OverScroller;
 
-/**
- * Created by Yan Zhenjie on 2016/7/22.
- */
 abstract class SwipeHorizontal {
     /**
      * Left menu.

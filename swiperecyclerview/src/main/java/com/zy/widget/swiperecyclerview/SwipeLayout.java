@@ -1,6 +1,4 @@
 /*
- * Copyright 2016 Yan Zhenjie
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cc.sachsen.fingertest.swipe;
+package com.zy.widget.swiperecyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -28,11 +26,6 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.TextView;
 
-import cc.sachsen.fingertest.R;
-
-/**
- * Created by Yan Zhenjie on 2016/7/27.
- */
 public class SwipeLayout extends FrameLayout implements SwipeSwitch {
 
     public static final int DEFAULT_SCROLLER_DURATION = 200;
