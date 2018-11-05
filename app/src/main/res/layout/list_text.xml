@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cc.sachsen.fingertest.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:clickable="true"
+    app:contentViewId="@id/swipe_content"
+    app:leftViewId="@id/swipe_left"
+    app:rightViewId="@id/swipe_right">
+
+    <LinearLayout
+        android:id="@+id/swipe_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorAccent"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/swipe_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/swipe_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"/>
+
+    </LinearLayout>
+
+</cc.sachsen.fingertest.swipe.SwipeLayout>
