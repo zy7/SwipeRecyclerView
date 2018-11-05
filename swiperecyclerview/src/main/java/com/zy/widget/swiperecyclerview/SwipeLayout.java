@@ -71,11 +71,11 @@ public class SwipeLayout extends FrameLayout implements SwipeSwitch {
         mRightViewId = typedArray.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_rightViewId, mRightViewId);
         typedArray.recycle();
 
+        setClickable(true);
         ViewConfiguration configuration = ViewConfiguration.get(getContext());
         mScaledTouchSlop = configuration.getScaledTouchSlop();
         mScaledMinimumFlingVelocity = configuration.getScaledMinimumFlingVelocity();
         mScaledMaximumFlingVelocity = configuration.getScaledMaximumFlingVelocity();
-
         mScroller = new OverScroller(getContext());
     }
 
