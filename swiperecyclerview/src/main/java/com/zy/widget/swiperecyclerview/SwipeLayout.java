@@ -65,11 +65,18 @@ public class SwipeLayout extends FrameLayout implements SwipeSwitch {
     public SwipeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.recycler_swipe_SwipeMenuLayout);
-        mLeftViewId = typedArray.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_leftViewId, mLeftViewId);
-        mContentViewId = typedArray.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_contentViewId, mContentViewId);
-        mRightViewId = typedArray.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_rightViewId, mRightViewId);
-        typedArray.recycle();
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.recycler_swipe_SwipeMenuLayout);
+        try {
+            mLeftViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_leftViewId, mLeftViewId);
+            mContentViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_contentViewId, mContentViewId);
+            mRightViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_rightViewId, mRightViewId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(a != null) {
+                a.recycle();
+            }
+        }
 
         setClickable(true);
         ViewConfiguration configuration = ViewConfiguration.get(getContext());
