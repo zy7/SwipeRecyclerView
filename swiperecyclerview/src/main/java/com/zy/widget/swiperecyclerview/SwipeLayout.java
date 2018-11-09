@@ -30,9 +30,9 @@ public class SwipeLayout extends FrameLayout implements SwipeSwitch {
 
     public static final int DEFAULT_SCROLLER_DURATION = 200;
 
-    private int mLeftViewId = 0;
-    private int mContentViewId = 0;
-    private int mRightViewId = 0;
+    private int mLeftLayoutId = 0;
+    private int mContentLayoutId = 0;
+    private int mRightLayoutId = 0;
 
     private float mOpenPercent = 0.5f;
     private int mScrollerDuration = DEFAULT_SCROLLER_DURATION;
@@ -65,11 +65,11 @@ public class SwipeLayout extends FrameLayout implements SwipeSwitch {
     public SwipeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.recycler_swipe_SwipeMenuLayout);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SwipeLayout);
         try {
-            mLeftViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_leftViewId, mLeftViewId);
-            mContentViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_contentViewId, mContentViewId);
-            mRightViewId = a.getResourceId(R.styleable.recycler_swipe_SwipeMenuLayout_rightViewId, mRightViewId);
+            mLeftLayoutId = a.getResourceId(R.styleable.SwipeLayout_leftLayoutId, mLeftLayoutId);
+            mContentLayoutId = a.getResourceId(R.styleable.SwipeLayout_contentLayoutId, mContentLayoutId);
+            mRightLayoutId = a.getResourceId(R.styleable.SwipeLayout_rightLayoutId, mRightLayoutId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -89,16 +89,16 @@ public class SwipeLayout extends FrameLayout implements SwipeSwitch {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        if (mLeftViewId != 0 && mSwipeLeftHorizontal == null) {
-            View view = findViewById(mLeftViewId);
+        if (mLeftLayoutId != 0 && mSwipeLeftHorizontal == null) {
+            View view = findViewById(mLeftLayoutId);
             mSwipeLeftHorizontal = new SwipeLeftHorizontal(view);
         }
-        if (mRightViewId != 0 && mSwipeRightHorizontal == null) {
-            View view = findViewById(mRightViewId);
+        if (mRightLayoutId != 0 && mSwipeRightHorizontal == null) {
+            View view = findViewById(mRightLayoutId);
             mSwipeRightHorizontal = new SwipeRightHorizontal(view);
         }
-        if (mContentViewId != 0 && mContentView == null) {
-            mContentView = findViewById(mContentViewId);
+        if (mContentLayoutId != 0 && mContentView == null) {
+            mContentView = findViewById(mContentLayoutId);
         } else {
             TextView errorView = new TextView(getContext());
             errorView.setClickable(true);
