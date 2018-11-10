@@ -3,7 +3,11 @@ package com.zy.swiperecyclerview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zy.widget.swiperecyclerview.SwipeRecyclerView;
 
 import java.util.ArrayList;
@@ -45,5 +49,17 @@ public class MainActivity extends AppCompatActivity {
         rv = findViewById(R.id.rv);
         rv.addItemDecoration(new DividerItemDecoration(this, 1));
         rv.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(MainActivity.this, "item" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(MainActivity.this, "menu" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

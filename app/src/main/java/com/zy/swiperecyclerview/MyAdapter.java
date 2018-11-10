@@ -1,47 +1,23 @@
 package com.zy.swiperecyclerview;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.support.annotation.Nullable;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.List;
 
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
-    private List<String> mData;
-
-    public MyAdapter(List<String> mData) {
-        this.mData = mData;
-    }
-
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_text, viewGroup, false);
-        return new MyViewHolder(v);
+    public MyAdapter(@Nullable List<String> data) {
+        super(R.layout.list_text, data);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
-        viewHolder.tv.setText(mData.get(i));
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData == null ? 0 : mData.size();
-    }
-
-    class MyViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tv;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tv = itemView.findViewById(R.id.tv_text);
-        }
+    protected void convert(BaseViewHolder helper, String item) {
+        helper.setText(R.id.tv_text, item)
+                .addOnClickListener(R.id.swipe_right_btn_1)
+                .addOnClickListener(R.id.swipe_right_btn_2);
     }
 }
